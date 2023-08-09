@@ -6,12 +6,12 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  ViewPropTypes,
 } from "react-native";
-
+import {ViewPropTypes, TextPropTypes, TextInputPropTypes} from 'deprecated-react-native-prop-types'
 const s = StyleSheet.create({
   baseInputStyle: {
     color: "black",
+    fontSize:15
   },
 });
 
@@ -26,8 +26,8 @@ export default class CCInput extends Component {
     status: PropTypes.oneOf(["valid", "invalid", "incomplete"]),
 
     containerStyle: ViewPropTypes.style,
-    inputStyle: Text.propTypes.style,
-    labelStyle: Text.propTypes.style,
+    inputStyle: TextPropTypes.style,
+    labelStyle: TextInputPropTypes.style,
     validColor: PropTypes.string,
     invalidColor: PropTypes.string,
     placeholderColor: PropTypes.string,
@@ -43,9 +43,12 @@ export default class CCInput extends Component {
     label: "",
     value: "",
     status: "incomplete",
-    containerStyle: {},
+    containerStyle: {
+    },
     inputStyle: {},
-    labelStyle: {},
+    labelStyle: {
+      
+    },
     onFocus: () => {},
     onChange: () => {},
     onBecomeEmpty: () => {},

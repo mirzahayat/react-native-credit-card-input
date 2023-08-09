@@ -12,10 +12,13 @@ import {
 import defaultIcons from "./Icons";
 import FlipCard from "react-native-flip-card";
 
-const BASE_SIZE = { width: 300, height: 190 };
+const BASE_SIZE = { width: 350, height: 220 };
 
 const s = StyleSheet.create({
-  cardContainer: {},
+  cardContainer: {
+    marginTop:20,
+    borderRadius:20,
+  },
   cardFace: {},
   icon: {
     position: "absolute",
