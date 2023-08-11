@@ -13,7 +13,7 @@ import {
 import Icons from "./Icons";
 import CCInput from "./CCInput";
 import { InjectedProps } from "./connectToState";
-
+import {TextPropTypes} from 'deprecated-react-native-prop-types'
 const INFINITE_WIDTH = 1000;
 
 const s = StyleSheet.create({
@@ -72,7 +72,7 @@ export default class LiteCreditCardInput extends Component {
 
     placeholders: PropTypes.object,
 
-    inputStyle: Text.propTypes.style,
+    inputStyle: TextPropTypes.style,
 
     validColor: PropTypes.string,
     invalidColor: PropTypes.string,

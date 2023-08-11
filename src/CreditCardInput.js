@@ -8,7 +8,6 @@ import ReactNative, {
   ScrollView,
   Dimensions,
   TextInput,
-  KeyboardAvoidingView,
 } from "react-native";
 import { TextInputPropTypes, TextPropTypes, ViewPropTypes } from 'deprecated-react-native-prop-types'
 
@@ -150,7 +149,7 @@ export default class CreditCardInput extends Component {
 
     return (
       <View style={s.container}>
-        <CreditCard focused={focused}
+        {/* <CreditCard focused={focused}
           brand={type}
           scale={cardScale}
           fontFamily={cardFontFamily}
@@ -160,28 +159,30 @@ export default class CreditCardInput extends Component {
           name={requiresName ? name : " "}
           number={number}
           expiry={expiry}
-          cvc={cvc} />
-        <View style={{backgroundColor:'white', width:'90%', height:'100%', borderTopRightRadius:20, borderTopLeftRadius:20, marginTop:15}}>
-        <ScrollView ref="Form"
-          horizontal={false}
-          showsVerticalScrollIndicator={false}
-          keyboardShouldPersistTaps={'handled'}
-          style={s.form}>
-          <CCInput {...this._inputProps("number")}
-            keyboardType="numeric"
-            containerStyle={[s.inputContainer, inputContainerStyle, { width: CARD_NUMBER_INPUT_WIDTH }]} />
-          <View style={{ flexDirection: 'row', paddingVertical: '8%', }}>
-            <CCInput {...this._inputProps("expiry")}
+          cvc={cvc} /> */}
+
+        <View style={{ backgroundColor: 'white', width: '90%', height: '120%', borderTopRightRadius: 20, borderTopLeftRadius: 20, marginTop: 15, paddingVertical: 20 }}>
+          <ScrollView
+            ref="Form"
+            scrollEnabled={false}
+            showsVerticalScrollIndicator={false}
+            keyboardShouldPersistTaps={'handled'}
+          >
+            <CCInput {...this._inputProps("number")}
               keyboardType="numeric"
-              containerStyle={[s.inputContainer, inputContainerStyle, { width: EXPIRY_INPUT_WIDTH }]} />
-            <CCInput {...this._inputProps("cvc")}
-              keyboardType="numeric"
-              containerStyle={[s.inputContainer, inputContainerStyle, { width: CVC_INPUT_WIDTH }]} />
-          </View>
-          <CCInput {...this._inputProps("name")}
-            containerStyle={[s.inputContainer, inputContainerStyle, { width: NAME_INPUT_WIDTH }]} />
-        </ScrollView>
-      </View>
+              containerStyle={[s.inputContainer, inputContainerStyle, { width: CARD_NUMBER_INPUT_WIDTH }]} />
+            <View style={{ flexDirection: 'row', paddingVertical: '8%'}}>
+              <CCInput {...this._inputProps("expiry")}
+                keyboardType="numeric"
+                containerStyle={[s.inputContainer, inputContainerStyle, { width: EXPIRY_INPUT_WIDTH }]} />
+              <CCInput {...this._inputProps("cvc")}
+                keyboardType="numeric"
+                containerStyle={[s.inputContainer, inputContainerStyle, { width: CVC_INPUT_WIDTH }]} />
+            </View>
+            <CCInput {...this._inputProps("name")}
+              containerStyle={[s.inputContainer, inputContainerStyle, { width: NAME_INPUT_WIDTH }]} />
+          </ScrollView>
+        </View>
       </View>
     );
   }
